@@ -1,5 +1,5 @@
 const path = require ('path');
-
+const webpack = require ('webpack');
 const config = {
   entry: path.resolve ('./src/index.js'),
   output: {
@@ -24,7 +24,14 @@ const config = {
       },
     ],
   },
+  plugins: [new webpack.BannerPlugin ('myh fly fly fly')], //bundle头部添加
   watch: true,
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+  },
 };
 
 module.exports = config;
